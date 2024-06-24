@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* CSS cho hiệu ứng fade-in */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px); /* Dịch chuyển phần tử xuống */
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0); /* Dịch chuyển phần tử về vị trí ban đầu */
+      }
+
+      .uppercase {
+        text-transform: uppercase;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .block {
+        padding: 30px;
+        margin: 0 auto;
+        max-width: 1000px;
+        background: #f1f1e7;
+        text-align: justify;
+      }
+
+      .img-block img {
+        width: 100%;
+        margin: auto;
+      }
+
+      .img-block {
+        width: 100%;
+        padding: 20px 0;
+        overflow: hidden;
+        position: relative;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+
+      .title {
+        background: #f1f1e7;
+        padding: 60px;
+        margin: 0 auto;
+        max-width: 820px;
+        text-align: center;
+      }
+
+      .title h1 {
+        font-size: 35px;
+        letter-spacing: 8px;
+      }
+
+      .first-char {
+        font-weight: 400;
+        float: left;
+        font-size: 84px;
+        line-height: 64px;
+        padding-top: 4px;
+        padding-right: 8px;
+        padding-left: 3px;
+      }
+
+      .color-ny {
+        color: #3d3c3a;
+      }
+
+      .color-atw {
+        color: #c48660;
+      }
+
+      .line-break {
+        border-bottom: 1px solid black;
+        width: 150px;
+        margin: 0 auto;
+      }
+
+      .margin-top-10 {
+        margin-top: 10px;
+      }
+
+      @media screen and (max-width: 959px) {
+        .block {
+          padding: 40px;
+          max-width: 620px;
+        }
+      }
+
+      @media screen and (max-width: 767px) {
+        .block {
+          padding: 30px;
+          max-width: 420px;
+        }
+
+        .title h1 {
+          font-size: 30px;
+        }
+      }
+
+      @media screen and (max-width: 479px) {
+        .block {
+          padding: 30px 15px;
+          max-width: 290px;
+        }
+      }
+
+      .gallery-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 1000px;
+        margin: auto;
+      }
+
+      .gallery-main {
+        margin-bottom: 10px;
+      }
+
+      .gallery-main-image {
+        max-width: 1000px;
+        height: auto;
+        display: block;
+      }
+
+      .gallery-thumbnails {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .thumbnail-item {
+        cursor: pointer;
+      }
+
+      .thumbnail-image {
+        width: 180px;
+        height: 140px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.2s ease-in-out;
+      }
+
+      .thumbnail-item:hover .thumbnail-image {
+        transform: scale(1.1);
+      }
+
+      .lightbox {
+        background-color: rgba(0, 0, 0, 0.8);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        color: #f1f1e7;
+        font-size: 30px;
+        cursor: pointer;
+      }
+
+      .lightbox-content {
+        text-align: center;
+        position: relative;
+      }
+
+      .lightbox-image {
+        max-width: 70vw !important;
+        max-height: 90vh !important;
+        margin-bottom: 20px;
+      }
+
+      .lightbox-navigation {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 2;
+      }
+
+      .lightbox-nav-btn {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #f1f1e7;
+        border: none;
+        font-size: 24px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .lightbox-nav-btn:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      .lightbox-content {
+        text-align: center;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+
+      .lightbox-image {
+        max-width: 70vw;
+        max-height: 70vh;
+        margin-bottom: 20px;
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        color: #f1f1e7;
+        font-size: 30px;
+        cursor: pointer;
+      }
+
+      .no-scroll {
+        overflow: hidden;
+      }
+
+      @media (max-width: 768px) {
+        .gallery-thumbnails {
+          flex-wrap: wrap;
+        }
+
+        .thumbnail-item {
+          width: 50%;
+          max-width: 100px;
+        }
+
+        .thumbnail-image {
+          width: 100%;
+          height: auto;
+        }
+
+        .lightbox-image {
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+
+      .text-author {
+        padding: 80px 0;
+        font-size: 1em;
+        line-height: calc(1.7 * 0.9);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box-category">
+      <div class="block">
+        <p class="fade-in">
+          <span class="first-char color-ny">B</span>reaking into the New York fashion world is no easy task. But by the early 2000's, UGG Australia began to
+          take it by storm. The evolution of UGG from a brand that made sheepskin boots, slippers, clogs and sandals for an active, outdoor lifestyle to a brand
+          that was now being touted as a symbol of a stylish, casual and luxurious lifestyle was swift. Much of this was due to a brand repositioning effort
+          that transformed UGG into a high-end luxury footwear maker. As a fashion brand, UGG advertisements now graced the pages of Vogue Magazine as well as
+          other fashion books. In the mid 2000's, the desire for premium casual fashion was popping up all over the world and UGG was now perfectly aligned with
+          this movement.
+        </p>
+        <p class="line-break margin-top-10 fade-in"></p>
+        <p class="margin-top-10 fade-in">
+          Fueled by celebrities from coast to coast wearing UGG boots and slippers on their downtime, an entirely new era of fashion was carved out. As a
+          result, the desire and love for UGG increased as people wanted to go deeper into this relaxed UGG experience. UGG began offering numerous color and
+          style variations on their sheepskin boots and slippers. Cold weather boots for women and men and leather casuals were added with great success. What
+          started as a niche item, UGG sheepskin boots were now a must-have staple in everyone's wardrobe. More UGG collections followed, showcasing everything
+          from knit boots to sneakers to wedges, all the while maintaining that luxurious feel UGG is known for all over the world. UGG products were now seen
+          on runways and in fashion shoots from coast to coast. Before long, the love spread even further.
+        </p>
+      </div>
+
+      <div class="block">
+        <img
+          class="img-block fade-in"
+          src="https://images.unsplash.com/photo-1440688807730-73e4e2169fb8?dpr=1&auto=format&fit=crop&w=1500&h=1001&q=80&cs=tinysrgb&crop="
+          alt=""
+        />
+
+        <p class="fade-in">
+          <span class="first-char color-atw">W</span>hen the New York fashion community notices your brand, the world soon follows. The widespread love for UGG
+          extended to Europe in the mid-2000's along with the stylish casual movement and demand for premium casual fashion. UGG boots and shoes were now seen
+          walking the streets of London, Paris and Amsterdam with regularity. To meet the rising demand from new fans, UGG opened flagship stores in the UK and
+          an additional location in Moscow. As the love spread farther East, concept stores were opened in Beijing, Shanghai and Tokyo. UGG Australia is now an
+          international brand that is loved by all. This love is a result of a magical combination of the amazing functional benefits of sheepskin and the
+          heightened emotional feeling you get when you slip them on your feet. In short, you just feel better all over when you wear UGG boots, slippers, and
+          shoes.
+        </p>
+        <p class="line-break margin-top-10 fade-in"></p>
+        <p class="margin-top-10 fade-in">
+          In 2011, UGG will go back to its roots and focus on bringing the active men that brought the brand to life back with new styles allowing them to love
+          the brand again as well. Partnering with Super Bowl champion and NFL MVP Tom Brady, UGG will invite even more men to feel the love the rest of the
+          world knows so well. UGG will also step into the world of high fashion with UGG Collection. The UGG Collection fuses the timeless craft of Italian
+          shoemaking with the reliable magic of sheepskin, bringing the luxurious feel of UGG to high end fashion. As the love for UGG continues to spread
+          across the world, we have continued to offer new and unexpected ways to experience the brand. The UGG journey continues on and the love for UGG
+          continues to spread.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const paragraphs = document.querySelectorAll(".fade-in");
+
+        const observerOptions = {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.1,
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                entry.target.classList.add("visible");
+              }, index * 200); // Thay đổi giá trị 200ms để tăng hoặc giảm độ trễ giữa các đoạn
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        paragraphs.forEach((paragraph) => {
+          observer.observe(paragraph);
+        });
+      });
+    </script>
+  </body>
+</html>
