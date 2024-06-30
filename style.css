@@ -10,7 +10,7 @@ body {
   margin: 0;
   padding: 0;
   color: #333;
-  background-color: #fffdf8;
+  /* background-color: #fffdf8; */
 }
 .site-header {
   height: 40px;
@@ -455,7 +455,7 @@ section:first-child {
   padding: 30px;
   margin: 0 auto;
   max-width: 1000px;
-  background: #fffdf8;
+
   text-align: justify;
 }
 .img-block img {
