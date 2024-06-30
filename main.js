@@ -44,6 +44,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const prevBtn = document.getElementById('prev-btn')
   const nextBtn = document.getElementById('next-btn')
 
+  const fadein = document.querySelectorAll('.fade-in.visible')
+
   let currentIndex = 0
 
   thumbnails.forEach((thumbnail, index) => {
@@ -55,6 +57,9 @@ document.addEventListener('DOMContentLoaded', function () {
       lightboxImage.src = imageUrl
       lightbox.style.display = 'flex'
       document.body.classList.add('no-scroll')
+      fadein.style.opacity = 0
+
+      console.log(fadein)
     })
   })
 
