@@ -19,6 +19,13 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+
+  margin-bottom: 0px !important;
 }
 .logo {
   display: inline-flex;
@@ -33,10 +40,42 @@ body {
   width: auto;
   flex-shrink: 0;
 }
+
+.social {
+  display: flex;
+  align-items: center;
+}
+.social-list {
+  display: flex;
+  padding-left: 16px;
+  margin-left: 16px;
+  border-left: 1px solid var(--bd-color);
+  column-gap: 5px;
+}
+
+.ic-zl {
+  width: 20px;
+  height: 20px;
+  display: block;
+  background: url(https://static-cms-plo.epicdn.me/v4/web/styles/img/ic-zalo.png) 0 0 no-repeat;
+}
+
+.social-item {
+  font-size: 24px;
+  color: #555;
+  width: 36px;
+  height: 36px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 6px;
+}
 /*--------------*/
 .animate-charcter {
   text-transform: uppercase;
-  background-image: linear-gradient(-225deg, #ffffff 0%, hsl(32, 93%, 43%) 29%, #904600 67%, #ffffff 100%);
+  background-image: linear-gradient(-225deg, #ffffff 0%, hsl(6.29deg 93% 43%) 29%, #900000 67%, #ffffff 100%);
   background-size: auto auto;
   background-clip: border-box;
   background-size: 200% auto;
@@ -47,7 +86,7 @@ body {
   -webkit-text-fill-color: transparent;
   animation: textclip 2s linear infinite;
   display: inline-block;
-  font-size: 2rem;
+  font-size: 200%;
 }
 
 @keyframes textclip {
@@ -71,7 +110,7 @@ body {
 }
 
 .overlay::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -161,10 +200,10 @@ body {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   color: #777;
-  font-family: "PT Serif", serif;
+  font-family: 'PT Serif', serif;
   font-weight: 700;
   font-style: italic;
-  font-size: 160%;
+  font-size: 200%;
   line-height: 1.2;
 }
 
@@ -173,7 +212,7 @@ body {
 }
 
 .foreground {
-  color: #f2744d;
+  color: hsl(6.29deg 93% 43%);
 }
 
 .quote-cite {
@@ -181,7 +220,7 @@ body {
   margin-top: 10px;
   font-weight: bold;
   margin: 1rem 0 0.5rem;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   color: #777;
   line-height: 1.2;
   font-style: normal;
@@ -193,7 +232,7 @@ body {
   color: #333;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   font-weight: 700;
   font-size: 200%;
   line-height: 1.2;
@@ -224,7 +263,7 @@ body {
 .body-wrapper {
   font-family: Merriweather, serif;
   font-size: 18px;
-  background-image: url(https://image.plo.vn/w2000/Uploaded/2024/rykxqqskxq/2024_05_17/canh-hoang-tan-cua-3790-can-ho-tai-dinh-cu-o-thu-thiem-sap-duoc-dau-gia-cuoi-nam-nay-1-9247.jpg.webp);
+  background-image: url(https://image.plo.vn/w2000/Uploaded/2024/wpdhncwqr/2024_01_24/banh-tet-truyen-thong-3-4922.jpg.webp);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover; /* Hiển thị hình nền full màn hình */
@@ -265,28 +304,37 @@ section:first-child {
 
 /* Hiệu ứng chuyển tiếp từ bên trái */
 .fade-from-left {
-  background: linear-gradient(to top left, transparent 50%, var(--text-color) 60%, var(--text-color) 0) left bottom 25vh / 100vw 30vh fixed no-repeat,
+  background: linear-gradient(to top left, transparent 50%, var(--text-color) 60%, var(--text-color) 0) left bottom 25vh / 100vw 30vh
+      fixed no-repeat,
     linear-gradient(to top, transparent 55%, var(--text-color) 0) left bottom 0vh / 100vw 100vh fixed no-repeat;
   -webkit-background-clip: text; /* Áp dụng clip cho background */
   background-clip: text; /* Áp dụng clip cho background */
   color: transparent; /* Màu chữ trong suốt */
+  font: clamp(1em, 3vmin, 12.5em) / 1.125 inconsolata, sans-serif;
+  line-height: 1.5;
 }
 
 /* Hiệu ứng chuyển tiếp từ phía trên */
 .fade-from-top {
-  background: linear-gradient(to top, transparent 27%, var(--text-color) 40%, var(--text-color) 0) left bottom 0vh / 100vw 100vh fixed no-repeat;
+  background: linear-gradient(to top, transparent 27%, var(--text-color) 40%, var(--text-color) 0) left bottom 0vh / 100vw 100vh fixed
+    no-repeat;
   -webkit-background-clip: text; /* Áp dụng clip cho background */
   background-clip: text; /* Áp dụng clip cho background */
   color: transparent; /* Màu chữ trong suốt */
+  font: clamp(1em, 3vmin, 12.5em) / 1.125 inconsolata, sans-serif;
+  line-height: 1.5;
 }
 
 /* Hiệu ứng chuyển tiếp từ bên phải */
 .fade-from-right {
-  background: linear-gradient(to top right, transparent 50%, var(--text-color) 60%, var(--text-color) 0) left bottom 25vh / 100vw 30vh fixed no-repeat,
+  background: linear-gradient(to top right, transparent 50%, var(--text-color) 60%, var(--text-color) 0) left bottom 25vh / 100vw 30vh
+      fixed no-repeat,
     linear-gradient(to top, transparent 55%, var(--text-color) 0) left bottom 0vh / 100vw 100vh fixed no-repeat;
   -webkit-background-clip: text; /* Áp dụng clip cho background */
   background-clip: text; /* Áp dụng clip cho background */
   color: transparent; /* Màu chữ trong suốt */
+  font: clamp(1em, 3vmin, 12.5em) / 1.125 inconsolata, sans-serif;
+  line-height: 1.5;
 }
 
 /* Hiệu ứng chuyển tiếp từ phía trên với chấm */
@@ -298,6 +346,10 @@ section:first-child {
   color: transparent; /* Màu chữ trong suốt */
 }
 
+.fade-from-left.title {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
 /*----------------------*/
 .wrap-content {
   margin-top: 10vh;
@@ -315,7 +367,8 @@ section:first-child {
 }
 .main-content-side span {
   color: #666;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  padding: 5px 0px;
 }
 .main-content-side img {
   max-width: 100%;
@@ -362,14 +415,18 @@ section:first-child {
 }
 /* CSS styles đã được bạn cung cấp */
 
-.main-content-side,
-.main-content-text,
-.main-content-text-col {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s, transform 1s;
+.main-content-side {
+  width: 313px; /* Chiều rộng mặc định */
+  height: 418px; /* Chiều cao mặc định */
+  position: relative; /* Đảm bảo các phần tử con có thể vị trí tuyệt đối đối với .main-content-side */
+  overflow: hidden; /* Ẩn bất kỳ nội dung vượt ra khỏi phần tử cha */
 }
-
+.main-content-side img {
+  width: auto; /* Chiều rộng tự động */
+  height: 418px; /* Chiều cao cố định */
+  display: block; /* Đảm bảo ảnh hiển thị là một khối thay vì một inline element */
+  object-fit: cover; /* Đảm bảo ảnh sẽ bị crop để lấp đầy khu vực đã cho */
+}
 .main-content-side.show,
 .main-content-text.show,
 .main-content-text-col.show {
@@ -378,25 +435,22 @@ section:first-child {
 }
 
 /*------------------*/
+
 .fade-in {
   opacity: 0;
   transform: translateY(20px); /* Dịch chuyển phần tử xuống */
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0); /* Dịch chuyển phần tử về vị trí ban đầu */
 }
-
 .uppercase {
   text-transform: uppercase;
 }
-
 .center {
   text-align: center;
 }
-
 .block {
   padding: 30px;
   margin: 0 auto;
@@ -404,12 +458,10 @@ section:first-child {
   background: #fffdf8;
   text-align: justify;
 }
-
 .img-block img {
   width: 100%;
   margin: auto;
 }
-
 .img-block {
   width: 100%;
   padding: 20px 0;
@@ -420,19 +472,10 @@ section:first-child {
   background-position: center center;
 }
 
-.title {
-  background: #fffdf8;
-  padding: 60px;
-  margin: 0 auto;
-  max-width: 820px;
-  text-align: center;
-}
-
 .title h1 {
   font-size: 35px;
   letter-spacing: 8px;
 }
-
 .first-char {
   font-weight: 400;
   float: left;
@@ -442,50 +485,41 @@ section:first-child {
   padding-right: 8px;
   padding-left: 3px;
 }
-
 .color-ny {
   color: #3d3c3a;
 }
-
 .color-atw {
   color: #c48660;
 }
-
 .line-break {
   border-bottom: 1px solid black;
   width: 150px;
   margin: 0 auto;
 }
-
 .margin-top-10 {
   margin-top: 10px;
 }
-
 @media screen and (max-width: 959px) {
   .block {
     padding: 40px;
     max-width: 620px;
   }
 }
-
 @media screen and (max-width: 767px) {
   .block {
     padding: 30px;
     max-width: 420px;
   }
-
   .title h1 {
     font-size: 30px;
   }
 }
-
 @media screen and (max-width: 479px) {
   .block {
     padding: 30px 15px;
     max-width: 290px;
   }
 }
-
 .gallery-container {
   display: flex;
   flex-direction: column;
@@ -493,39 +527,35 @@ section:first-child {
   max-width: 1000px;
   margin: auto;
 }
-
 .gallery-main {
   margin-bottom: 10px;
 }
-
 .gallery-main-image {
+  width: 100%;
   max-width: 1000px;
   height: auto;
   display: block;
 }
-
 .gallery-thumbnails {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
 }
-
 .thumbnail-item {
   cursor: pointer;
+  flex: 1 0 180px;
 }
-
 .thumbnail-image {
-  width: 180px;
-  height: 140px;
+  width: 100%;
+  height: auto;
   object-fit: cover;
   display: block;
   transition: transform 0.2s ease-in-out;
 }
-
 .thumbnail-item:hover .thumbnail-image {
   transform: scale(1.1);
 }
-
 .lightbox {
   background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
@@ -537,7 +567,6 @@ section:first-child {
   justify-content: center;
   align-items: center;
 }
-
 .lightbox-close {
   position: absolute;
   top: 10px;
@@ -548,18 +577,20 @@ section:first-child {
   font-size: 30px;
   cursor: pointer;
 }
-
 .lightbox-content {
   text-align: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
-
 .lightbox-image {
-  max-width: 70vw !important;
-  max-height: 90vh !important;
+  max-width: 70vw;
+  max-height: 70vh;
   margin-bottom: 20px;
 }
-
 .lightbox-navigation {
   position: absolute;
   top: 0;
@@ -571,7 +602,6 @@ section:first-child {
   align-items: center;
   z-index: 2;
 }
-
 .lightbox-nav-btn {
   background-color: rgba(0, 0, 0, 0.5);
   color: #fffdf8;
@@ -581,69 +611,29 @@ section:first-child {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .lightbox-nav-btn:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
-
-.lightbox-content {
-  text-align: center;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.lightbox-image {
-  max-width: 70vw;
-  max-height: 70vh;
-  margin-bottom: 20px;
-}
-
-.lightbox-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  border: none;
-  color: #fffdf8;
-  font-size: 30px;
-  cursor: pointer;
-}
-
 .no-scroll {
   overflow: hidden;
 }
-
 @media (max-width: 768px) {
-  .gallery-thumbnails {
-    flex-wrap: wrap;
-  }
-
   .thumbnail-item {
-    width: 50%;
-    max-width: 100px;
+    flex: 1 0 100px;
   }
-
   .thumbnail-image {
-    width: 100%;
     height: auto;
   }
-
   .lightbox-image {
     max-width: 100%;
     max-height: 100%;
   }
 }
-
 .text-author {
   padding: 80px 0;
   font-size: 1em;
   line-height: calc(1.7 * 0.9);
 }
-
 /*----------------------------*/
 .footer {
   width: 100%;
@@ -665,4 +655,25 @@ section:first-child {
 }
 .box-category {
   padding-bottom: 100px;
+}
+
+/*---------------*/
+@media (max-width: 768px) {
+  .animate-charcter {
+    font-size: 1.5rem;
+  }
+  .blockquote {
+    font-size: 130%;
+  }
+  .text-wrapper {
+    width: auto !important;
+  }
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  section {
+    margin: 50vh auto 0;
+  }
 }
