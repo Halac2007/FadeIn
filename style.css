@@ -110,7 +110,7 @@ body {
 }
 
 .overlay::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -187,7 +187,7 @@ body {
 .bodytext-inner {
   margin: 0;
 }
-
+/* 
 .blockquote {
   background-color: transparent;
   display: block;
@@ -200,13 +200,44 @@ body {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   color: #777;
-  font-family: 'PT Serif', serif;
+  font-family: "PT Serif", serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 200%;
+  line-height: 1.2;
+} */
+
+.bodytexttitle {
+  background-color: transparent;
+  display: block;
+  padding-left: 0;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-right: 0;
+  border-top: 2px solid rgba(204, 204, 204, 0.3);
+  border-bottom: 2px solid rgba(204, 204, 204, 0.3);
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #777;
+  font-family: "PT Serif", serif;
   font-weight: 700;
   font-style: italic;
   font-size: 200%;
   line-height: 1.2;
 }
 
+.bodytextauthor {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  margin: 1rem 0 0.5rem;
+  font-family: "Lato", sans-serif;
+  color: #777;
+  line-height: 1.2;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13.6px;
+}
 .center {
   text-align: center;
 }
@@ -214,25 +245,25 @@ body {
 .foreground {
   color: hsl(6.29deg 93% 43%);
 }
-
+/* 
 .quote-cite {
   display: block;
   margin-top: 10px;
   font-weight: bold;
   margin: 1rem 0 0.5rem;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   color: #777;
   line-height: 1.2;
   font-style: normal;
   font-weight: 400;
   font-size: 13.6px;
-}
+} */
 
 .title {
   color: #333;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 700;
   font-size: 200%;
   line-height: 1.2;
@@ -304,8 +335,7 @@ section:first-child {
 
 /* Hiệu ứng chuyển tiếp từ bên trái */
 .fade-from-left {
-  background: linear-gradient(to top left, transparent 50%, var(--text-color) 60%, var(--text-color) 0) left bottom 25vh / 100vw 30vh
-      fixed no-repeat,
+  background: linear-gradient(to top left, transparent 50%, var(--text-color) 60%, var(--text-color) 0) left bottom 25vh / 100vw 30vh fixed no-repeat,
     linear-gradient(to top, transparent 55%, var(--text-color) 0) left bottom 0vh / 100vw 100vh fixed no-repeat;
   -webkit-background-clip: text; /* Áp dụng clip cho background */
   background-clip: text; /* Áp dụng clip cho background */
@@ -316,8 +346,7 @@ section:first-child {
 
 /* Hiệu ứng chuyển tiếp từ phía trên */
 .fade-from-top {
-  background: linear-gradient(to top, transparent 27%, var(--text-color) 40%, var(--text-color) 0) left bottom 0vh / 100vw 100vh fixed
-    no-repeat;
+  background: linear-gradient(to top, transparent 27%, var(--text-color) 40%, var(--text-color) 0) left bottom 0vh / 100vw 100vh fixed no-repeat;
   -webkit-background-clip: text; /* Áp dụng clip cho background */
   background-clip: text; /* Áp dụng clip cho background */
   color: transparent; /* Màu chữ trong suốt */
@@ -327,8 +356,7 @@ section:first-child {
 
 /* Hiệu ứng chuyển tiếp từ bên phải */
 .fade-from-right {
-  background: linear-gradient(to top right, transparent 50%, var(--text-color) 60%, var(--text-color) 0) left bottom 25vh / 100vw 30vh
-      fixed no-repeat,
+  background: linear-gradient(to top right, transparent 50%, var(--text-color) 60%, var(--text-color) 0) left bottom 25vh / 100vw 30vh fixed no-repeat,
     linear-gradient(to top, transparent 55%, var(--text-color) 0) left bottom 0vh / 100vw 100vh fixed no-repeat;
   -webkit-background-clip: text; /* Áp dụng clip cho background */
   background-clip: text; /* Áp dụng clip cho background */
@@ -661,8 +689,122 @@ section:first-child {
 .footer.visible {
   bottom: 0; /* Show footer */
 }
-.box-category {
-  padding-bottom: 100px;
+
+/* blockquote {
+  font-weight: 100;
+  font-size: 2rem;
+
+  line-height: 1.4;
+  position: relative;
+  margin: 0;
+  padding: 0.5rem;
+}
+blockquote:before,
+blockquote:after {
+  position: absolute;
+  color: #cc0909;
+  font-size: 8rem;
+  width: 4rem;
+  height: 4rem;
+}
+blockquote:before {
+  content: "“";
+  left: -5rem;
+  top: -2rem;
+}
+blockquote:after {
+  content: "”";
+  right: -5rem;
+  bottom: 1rem;
+}
+cite {
+  line-height: 3;
+  text-align: left;
+}
+
+.wrap-quote {
+  padding: 30px;
+  margin: 0 auto;
+  max-width: 1000px;
+  background: #fffdf8;
+  text-align: justify;
+} */
+
+/* center the blockquote in the page */
+
+/* Blockquote main style */
+.blockquote {
+  padding: 10px 0px;
+}
+
+/* Blockquote header */
+.blockquote h1 {
+  /* font-family: "Abril Fatface", cursive; */
+  position: relative; /* for pseudos */
+  font-size: 140%;
+  font-weight: normal;
+  line-height: 1;
+  margin: 0;
+  border: 1px solid #fff;
+  border: solid 1px;
+  border-radius: 20px;
+  padding: 25px;
+}
+
+/* Blockquote right double quotes */
+.blockquote h1:after {
+  content: "";
+  position: absolute;
+  border: 1px solid #333;
+  border-radius: 0 50px 0 0;
+  width: 60px;
+  height: 60px;
+  bottom: -61px;
+  left: 50px;
+  border-bottom: none;
+  border-left: none;
+  z-index: 3;
+}
+
+.blockquote::before {
+  content: "“";
+  left: -5rem;
+  top: -2rem;
+}
+
+.blockquote h1:before {
+  content: "";
+  position: absolute;
+  width: 80px;
+  border: 6px solid #fffdf8;
+  bottom: -3px;
+  left: 50px;
+  z-index: 2;
+}
+
+/* increase header size after 600px */
+@media all and (min-width: 600px) {
+  .blockquote h1 {
+    line-height: 1.2;
+  }
+}
+
+/* Blockquote subheader */
+.blockquote h4 {
+  position: relative;
+  color: #f11b1b;
+
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+  padding-top: 15px;
+  z-index: 1;
+  margin-left: 150px;
+  padding-left: 12px;
+}
+
+.blockquote h4:first-letter {
+  margin-left: -12px;
 }
 
 /*---------------*/
